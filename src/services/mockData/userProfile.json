@@ -1,0 +1,33 @@
+{
+  "Id": 1,
+  "name": "John Doe",
+  "email": "john.doe@email.com",
+  "phone": "+1 (555) 123-4567",
+  "location": "San Francisco, CA",
+  "headline": "Full Stack Developer with 5+ years of experience in React and Node.js",
+  "experience": [
+    {
+      "title": "Senior Software Engineer",
+      "company": "TechStart Inc",
+      "duration": "2021 - Present",
+      "description": "Lead frontend development using React and TypeScript, mentored junior developers"
+    },
+    {
+      "title": "Full Stack Developer",
+      "company": "WebSolutions LLC",
+      "duration": "2019 - 2021",
+      "description": "Built responsive web applications using React, Node.js, and PostgreSQL"
+    }
+  ],
+  "skills": [
+    "React.js",
+    "Node.js",
+    "TypeScript",
+    "PostgreSQL",
+    "AWS",
+    "Docker",
+    "Git",
+    "Agile/Scrum"
+  ],
+  "resumeUrl": "/documents/john_doe_resume_2024.pdf"
+}

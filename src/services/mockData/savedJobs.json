@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "jobId": 2,
+    "savedDate": "2024-01-15T12:00:00Z",
+    "notes": "Interesting product marketing role, need to research company more"
+  },
+  {
+    "Id": 2,
+    "jobId": 4,
+    "savedDate": "2024-01-13T16:30:00Z",
+    "notes": "Great data science opportunity, matches my skills perfectly"
+  },
+  {
+    "Id": 3,
+    "jobId": 6,
+    "savedDate": "2024-01-11T10:45:00Z",
+    "notes": "DevOps role with good remote flexibility"
+  }
+]

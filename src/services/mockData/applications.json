@@ -1,0 +1,29 @@
+[
+  {
+    "Id": 1,
+    "jobId": 1,
+    "status": "Applied",
+    "appliedDate": "2024-01-16T10:30:00Z",
+    "notes": "Submitted application with updated resume focusing on React experience",
+    "resume": "john_doe_resume_2024.pdf",
+    "coverLetter": "Excited about the opportunity to work with cutting-edge frontend technologies at TechCorp Solutions."
+  },
+  {
+    "Id": 2,
+    "jobId": 3,
+    "status": "Interview Scheduled",
+    "appliedDate": "2024-01-14T14:20:00Z",
+    "notes": "Phone screening scheduled for next week",
+    "resume": "john_doe_resume_2024.pdf",
+    "coverLetter": "My design portfolio aligns well with the creative direction of Design Studio Pro."
+  },
+  {
+    "Id": 3,
+    "jobId": 8,
+    "status": "Under Review",
+    "appliedDate": "2024-01-12T09:15:00Z",
+    "notes": "Application submitted through company website",
+    "resume": "john_doe_resume_2024.pdf",
+    "coverLetter": "Looking forward to contributing to the full stack development team at StartupHub."
+  }
+]
