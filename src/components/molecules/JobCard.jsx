@@ -7,7 +7,8 @@ import { format } from "date-fns";
 import { cn } from "@/utils/cn";
 
 const JobCard = ({ job, className, onEdit, onDelete, onApplyCandidate, appliedCandidates = [] }) => {
-  const getStatusVariant = (status) => {
+const getStatusVariant = (status) => {
+    if (!status) return "default";
     switch (status.toLowerCase()) {
       case "active":
         return "active";
@@ -99,10 +100,10 @@ const JobCard = ({ job, className, onEdit, onDelete, onApplyCandidate, appliedCa
           {job.description}
         </p>
         
-        {job.requiredSkills && (
+{job.requiredSkills_c && (
           <div className="mb-4">
             <div className="flex flex-wrap gap-1">
-              {job.requiredSkills.split(',').slice(0, 3).map((skill, index) => (
+              {job.requiredSkills_c.split(',').slice(0, 3).map((skill, index) => (
                 <span
                   key={index}
                   className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-md"
@@ -110,14 +111,14 @@ const JobCard = ({ job, className, onEdit, onDelete, onApplyCandidate, appliedCa
                   {skill.trim()}
                 </span>
               ))}
-              {job.requiredSkills.split(',').length > 3 && (
+              {job.requiredSkills_c.split(',').length > 3 && (
                 <span className="text-xs text-gray-500 px-2 py-1">
-                  +{job.requiredSkills.split(',').length - 3} more
+                  +{job.requiredSkills_c.split(',').length - 3} more
                 </span>
               )}
             </div>
           </div>
-)}
+        )}
         
         {/* Applied Candidates Section */}
         {appliedCandidates.length > 0 && (
