@@ -1,41 +1,37 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import Layout from "@/components/layouts/Layout";
-import HomePage from "@/components/pages/HomePage";
-import JobsPage from "@/components/pages/JobsPage";
-import JobDetailPage from "@/components/pages/JobDetailPage";
-import DashboardPage from "@/components/pages/DashboardPage";
-import ProfilePage from "@/components/pages/ProfilePage";
-import DocumentsPage from "@/components/pages/DocumentsPage";
+import Layout from "@/components/organisms/Layout";
+import Dashboard from "@/components/pages/Dashboard";
+import Jobs from "@/components/pages/Jobs";
+import Candidates from "@/components/pages/Candidates";
+import Clients from "@/components/pages/Clients";
 
 function App() {
   return (
-    <Router>
-      <Layout>
+    <BrowserRouter>
+      <div className="min-h-screen bg-gray-50">
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/jobs" element={<JobsPage />} />
-          <Route path="/jobs/:id" element={<JobDetailPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/documents" element={<DocumentsPage />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="jobs" element={<Jobs />} />
+<Route path="candidates" element={<Candidates />} />
+            <Route path="clients" element={<Clients />} />
+          </Route>
         </Routes>
-      </Layout>
-      
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-        style={{ zIndex: 9999 }}
-      />
-    </Router>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          style={{ zIndex: 9999 }}
+        />
+      </div>
+    </BrowserRouter>
   );
 }
 

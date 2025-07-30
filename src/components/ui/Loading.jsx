@@ -1,95 +1,76 @@
+import React from "react";
 import { cn } from "@/utils/cn";
 
 const Loading = ({ className, variant = "default" }) => {
-  if (variant === "jobs") {
-    return (
-      <div className={cn("space-y-6", className)}>
-        {[...Array(6)].map((_, i) => (
-          <div key={i} className="card p-6 animate-pulse">
-            <div className="flex justify-between items-start mb-4">
-              <div className="flex-1">
-                <div className="h-6 bg-gray-200 rounded-lg w-3/4 mb-2"></div>
-                <div className="h-5 bg-gray-200 rounded w-1/2 mb-2"></div>
-                <div className="flex gap-4">
-                  <div className="h-4 bg-gray-200 rounded w-24"></div>
-                  <div className="h-4 bg-gray-200 rounded w-20"></div>
-                </div>
-              </div>
-              <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
-            </div>
-            <div className="space-y-2 mb-4">
-              <div className="h-4 bg-gray-200 rounded w-full"></div>
-              <div className="h-4 bg-gray-200 rounded w-2/3"></div>
-            </div>
-            <div className="flex justify-between items-center">
-              <div className="flex gap-2">
-                <div className="h-6 bg-gray-200 rounded-full w-16"></div>
-                <div className="h-6 bg-gray-200 rounded-full w-20"></div>
-              </div>
-              <div className="text-right">
-                <div className="h-5 bg-gray-200 rounded w-24 mb-1"></div>
-                <div className="h-4 bg-gray-200 rounded w-20"></div>
-              </div>
-            </div>
+  const variants = {
+    default: "space-y-6",
+    grid: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
+    list: "space-y-4"
+  };
+
+  const SkeletonCard = () => (
+    <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+      <div className="animate-pulse">
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex-1">
+            <div className="h-6 bg-gradient-to-r from-gray-200 to-gray-300 rounded-lg mb-2"></div>
+            <div className="h-4 bg-gradient-to-r from-gray-200 to-gray-300 rounded-lg w-2/3 mb-3"></div>
+            <div className="h-6 bg-gradient-to-r from-blue-100 to-blue-200 rounded-full w-20"></div>
           </div>
+          <div className="w-12 h-12 bg-gradient-to-br from-primary-200 to-secondary-200 rounded-xl"></div>
+        </div>
+        <div className="space-y-2 mb-4">
+          <div className="h-3 bg-gradient-to-r from-gray-200 to-gray-300 rounded"></div>
+          <div className="h-3 bg-gradient-to-r from-gray-200 to-gray-300 rounded w-5/6"></div>
+        </div>
+        <div className="flex items-center justify-between">
+          <div className="h-3 bg-gradient-to-r from-gray-200 to-gray-300 rounded w-24"></div>
+          <div className="h-3 bg-gradient-to-r from-gray-200 to-gray-300 rounded w-20"></div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const SkeletonMetric = () => (
+    <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+      <div className="animate-pulse">
+        <div className="flex items-center justify-between">
+          <div className="flex-1">
+            <div className="h-4 bg-gradient-to-r from-gray-200 to-gray-300 rounded-lg mb-2 w-24"></div>
+            <div className="h-8 bg-gradient-to-r from-gray-200 to-gray-300 rounded-lg mb-2 w-16"></div>
+            <div className="h-3 bg-gradient-to-r from-green-100 to-green-200 rounded w-32"></div>
+          </div>
+          <div className="w-14 h-14 bg-gradient-to-br from-primary-200 to-secondary-200 rounded-xl"></div>
+        </div>
+      </div>
+    </div>
+  );
+
+  if (variant === "grid") {
+    return (
+      <div className={cn(variants.grid, className)}>
+        {[...Array(6)].map((_, i) => (
+          <SkeletonCard key={i} />
         ))}
       </div>
     );
   }
 
-  if (variant === "job-detail") {
+  if (variant === "metrics") {
     return (
-      <div className={cn("animate-pulse", className)}>
-        <div className="bg-gradient-to-r from-primary-50 to-secondary-50 p-8 rounded-xl mb-8">
-          <div className="h-8 bg-gray-200 rounded-lg w-3/4 mb-4"></div>
-          <div className="h-6 bg-gray-200 rounded w-1/2 mb-4"></div>
-          <div className="flex gap-6 mb-6">
-            <div className="h-5 bg-gray-200 rounded w-32"></div>
-            <div className="h-5 bg-gray-200 rounded w-24"></div>
-            <div className="h-5 bg-gray-200 rounded w-28"></div>
-          </div>
-          <div className="flex gap-4">
-            <div className="h-12 bg-gray-200 rounded-lg w-32"></div>
-            <div className="h-12 bg-gray-200 rounded-lg w-24"></div>
-          </div>
-        </div>
-        
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="md:col-span-2 space-y-8">
-            {[...Array(3)].map((_, i) => (
-              <div key={i} className="card p-6">
-                <div className="h-6 bg-gray-200 rounded w-48 mb-4"></div>
-                <div className="space-y-2">
-                  {[...Array(4)].map((_, j) => (
-                    <div key={j} className="h-4 bg-gray-200 rounded w-full"></div>
-                  ))}
-                  <div className="h-4 bg-gray-200 rounded w-2/3"></div>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="space-y-6">
-            <div className="card p-6">
-              <div className="h-6 bg-gray-200 rounded w-32 mb-4"></div>
-              <div className="space-y-3">
-                {[...Array(3)].map((_, i) => (
-                  <div key={i} className="h-4 bg-gray-200 rounded w-full"></div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6", className)}>
+        {[...Array(4)].map((_, i) => (
+          <SkeletonMetric key={i} />
+        ))}
       </div>
     );
   }
 
   return (
-    <div className={cn("flex items-center justify-center p-8", className)}>
-      <div className="flex items-center space-x-3">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
-        <span className="text-gray-600 font-medium">Loading...</span>
-      </div>
+    <div className={cn(variants[variant], className)}>
+      {[...Array(3)].map((_, i) => (
+        <SkeletonCard key={i} />
+      ))}
     </div>
   );
 };

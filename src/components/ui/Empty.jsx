@@ -1,31 +1,37 @@
+import React from "react";
 import Button from "@/components/atoms/Button";
 import ApperIcon from "@/components/ApperIcon";
+import { cn } from "@/utils/cn";
 
 const Empty = ({ 
-  title = "No items found", 
-  description = "There are no items to display at the moment.",
+  title = "No data found",
+  description = "Get started by adding your first item.",
+  icon = "Inbox",
   actionLabel,
   onAction,
-  icon = "Search",
-  className = ""
+  className 
 }) => {
   return (
-    <div className={`flex flex-col items-center justify-center p-12 text-center ${className}`}>
-      <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-full mb-6">
-        <ApperIcon name={icon} className="w-16 h-16 text-gray-400" />
+    <div className={cn("flex flex-col items-center justify-center py-12 px-6 text-center", className)}>
+      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center mb-6 shadow-lg">
+        <ApperIcon name={icon} size={32} className="text-gray-400" />
       </div>
       
-      <h3 className="text-2xl font-semibold text-gray-900 mb-3 font-display">
+      <h3 className="text-xl font-semibold font-display text-gray-900 mb-2">
         {title}
       </h3>
       
-      <p className="text-gray-600 mb-8 max-w-md leading-relaxed">
+      <p className="text-gray-600 mb-6 max-w-md">
         {description}
       </p>
       
       {actionLabel && onAction && (
-        <Button onClick={onAction} variant="primary" size="lg">
-          {actionLabel}
+        <Button 
+          onClick={onAction}
+          className="flex items-center space-x-2"
+        >
+          <ApperIcon name="Plus" size={16} />
+          <span>{actionLabel}</span>
         </Button>
       )}
     </div>

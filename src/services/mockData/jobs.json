@@ -1,250 +1,82 @@
 [
   {
     "Id": 1,
-    "title": "Senior Frontend Developer",
-    "company": "TechCorp Solutions",
+    "title": "Senior Software Engineer",
+    "company": "TechFlow Inc.",
+    "clientId": 1,
     "location": "San Francisco, CA",
-    "type": "Full-time",
-    "salary": {
-      "min": 120000,
-      "max": 180000,
-      "currency": "USD"
-    },
-    "description": "We are looking for a talented Senior Frontend Developer to join our dynamic team. You will be responsible for building user-facing applications using modern web technologies and ensuring exceptional user experiences across all platforms.",
-    "requirements": [
-      "5+ years of experience with React.js and modern JavaScript",
-      "Strong proficiency in HTML5, CSS3, and responsive design",
-      "Experience with state management libraries (Redux, Zustand)",
-      "Knowledge of testing frameworks (Jest, Cypress)",
-      "Bachelor's degree in Computer Science or equivalent experience"
-    ],
-    "benefits": [
-      "Competitive salary and equity package",
-      "Comprehensive health, dental, and vision insurance",
-      "Flexible work arrangements and remote options",
-      "Professional development budget",
-      "Generous PTO and parental leave"
-    ],
-    "postedDate": "2024-01-15T10:30:00Z",
-    "industry": "Technology",
-    "experienceLevel": "Senior",
-    "featured": true
+    "jobType": "Full-time",
+    "salaryMin": "120000",
+    "salaryMax": "180000",
+    "experienceLevel": "Senior-level",
+    "requiredSkills": "React, Node.js, TypeScript, AWS",
+    "description": "We are looking for a Senior Software Engineer to join our dynamic team. You will be responsible for designing, developing, and maintaining high-quality software solutions. The ideal candidate should have expertise in modern web technologies, cloud platforms, and agile development methodologies.",
+    "status": "active",
+    "createdAt": "2024-01-15T09:30:00Z",
+    "applicants": 12
   },
   {
     "Id": 2,
-    "title": "Product Marketing Manager",
-    "company": "GrowthLabs Inc",
-    "location": "New York, NY",
-    "type": "Full-time",
-    "salary": {
-      "min": 90000,
-      "max": 130000,
-      "currency": "USD"
-    },
-    "description": "Join our marketing team to drive product adoption and growth. You'll work closely with product, sales, and customer success teams to develop go-to-market strategies and create compelling marketing campaigns.",
-    "requirements": [
-      "3+ years of product marketing experience",
-      "Strong analytical and strategic thinking skills",
-      "Experience with marketing automation tools",
-      "Excellent written and verbal communication skills",
-      "MBA or equivalent experience preferred"
-    ],
-    "benefits": [
-      "Stock options and performance bonuses",
-      "Health and wellness programs",
-      "Flexible working hours",
-      "Learning and development opportunities",
-      "Modern office with great amenities"
-    ],
-    "postedDate": "2024-01-14T14:20:00Z",
-    "industry": "Marketing",
+    "title": "Product Manager",
+    "company": "InnovateCorp",
+    "clientId": 2,
+    "location": "Austin, TX",
+    "jobType": "Full-time",
+    "salaryMin": "100000",
+    "salaryMax": "140000",
     "experienceLevel": "Mid-level",
-    "featured": true
+    "requiredSkills": "Product Strategy, Analytics, Roadmapping",
+    "description": "Join our product team as a Product Manager and help shape the future of our digital products. You will work closely with engineering, design, and business teams to define product strategy, prioritize features, and ensure successful product launches.",
+    "status": "active",
+    "createdAt": "2024-01-12T14:20:00Z",
+    "applicants": 8
   },
   {
     "Id": 3,
     "title": "UX/UI Designer",
-    "company": "Design Studio Pro",
-    "location": "Austin, TX",
-    "type": "Full-time",
-    "salary": {
-      "min": 75000,
-      "max": 110000,
-      "currency": "USD"
-    },
-    "description": "We're seeking a creative UX/UI Designer to help shape the future of our digital products. You'll conduct user research, create wireframes and prototypes, and collaborate with development teams to bring designs to life.",
-    "requirements": [
-      "3+ years of UX/UI design experience",
-      "Proficiency in Figma, Sketch, or Adobe Creative Suite",
-      "Strong portfolio showcasing design process and outcomes",
-      "Experience with user research and usability testing",
-      "Understanding of frontend development principles"
-    ],
-    "benefits": [
-      "Creative and collaborative work environment",
-      "Professional development budget for courses and conferences",
-      "Health insurance and retirement benefits",
-      "Flexible PTO policy",
-      "Work from home options"
-    ],
-    "postedDate": "2024-01-13T09:15:00Z",
-    "industry": "Design",
+    "company": "DesignStudio Pro",
+    "clientId": 3,
+    "location": "New York, NY",
+    "jobType": "Full-time",
+    "salaryMin": "80000",
+    "salaryMax": "110000",
     "experienceLevel": "Mid-level",
-    "featured": false
+    "requiredSkills": "Figma, Adobe Creative Suite, User Research",
+    "description": "We're seeking a talented UX/UI Designer to create intuitive and engaging user experiences. You will be responsible for user research, wireframing, prototyping, and creating pixel-perfect designs that delight our users and drive business goals.",
+    "status": "active",
+    "createdAt": "2024-01-10T11:45:00Z",
+    "applicants": 15
   },
   {
     "Id": 4,
-    "title": "Data Scientist",
-    "company": "Analytics First",
+    "title": "DevOps Engineer",
+    "company": "CloudTech Solutions",
+    "clientId": 4,
     "location": "Seattle, WA",
-    "type": "Full-time",
-    "salary": {
-      "min": 130000,
-      "max": 190000,
-      "currency": "USD"
-    },
-    "description": "Join our data science team to extract insights from complex datasets and build predictive models that drive business decisions. You'll work with cutting-edge ML tools and collaborate with cross-functional teams.",
-    "requirements": [
-      "PhD or Master's in Data Science, Statistics, or related field",
-      "5+ years of experience with Python, R, and SQL",
-      "Experience with machine learning frameworks (TensorFlow, PyTorch)",
-      "Strong statistical analysis and modeling skills",
-      "Experience with cloud platforms (AWS, GCP, Azure)"
-    ],
-    "benefits": [
-      "Competitive salary and equity package",
-      "Comprehensive benefits package",
-      "Flexible work arrangements",
-      "Conference attendance and learning budget",
-      "Collaborative and innovative work environment"
-    ],
-    "postedDate": "2024-01-12T16:45:00Z",
-    "industry": "Technology",
-    "experienceLevel": "Senior",
-    "featured": true
+    "jobType": "Full-time",
+    "salaryMin": "110000",
+    "salaryMax": "160000",
+    "experienceLevel": "Senior-level",
+    "requiredSkills": "AWS, Docker, Kubernetes, Terraform",
+    "description": "Looking for a DevOps Engineer to manage our cloud infrastructure and CI/CD pipelines. Experience with AWS, Docker, Kubernetes, and automation tools is essential. You will help scale our systems and improve deployment processes.",
+    "status": "draft",
+    "createdAt": "2024-01-08T16:10:00Z",
+    "applicants": 3
   },
   {
     "Id": 5,
-    "title": "Marketing Coordinator",
-    "company": "BrandBoost Agency",
+    "title": "Data Scientist",
+    "company": "Analytics Plus",
+    "clientId": 5,
     "location": "Chicago, IL",
-    "type": "Full-time",
-    "salary": {
-      "min": 45000,
-      "max": 65000,
-      "currency": "USD"
-    },
-    "description": "Support our marketing team in executing campaigns across multiple channels. This is an excellent opportunity for someone early in their marketing career to gain hands-on experience with digital marketing, content creation, and campaign analysis.",
-    "requirements": [
-      "1-2 years of marketing experience or relevant internships",
-      "Knowledge of social media platforms and digital marketing",
-      "Strong writing and communication skills",
-      "Experience with marketing tools (HubSpot, Mailchimp, etc.)",
-      "Bachelor's degree in Marketing, Communications, or related field"
-    ],
-    "benefits": [
-      "Growth-oriented environment with mentorship",
-      "Health and dental insurance",
-      "Paid time off and holidays",
-      "Professional development opportunities",
-      "Fun and collaborative team culture"
-    ],
-    "postedDate": "2024-01-11T11:30:00Z",
-    "industry": "Marketing",
-    "experienceLevel": "Entry-level",
-    "featured": false
-  },
-  {
-    "Id": 6,
-    "title": "DevOps Engineer",
-    "company": "CloudScale Systems",
-    "location": "Denver, CO",
-    "type": "Full-time",
-    "salary": {
-      "min": 110000,
-      "max": 160000,
-      "currency": "USD"
-    },
-    "description": "Help us scale our infrastructure and improve deployment processes. You'll work with containerization, CI/CD pipelines, and cloud platforms to ensure reliable and efficient software delivery.",
-    "requirements": [
-      "4+ years of DevOps or infrastructure experience",
-      "Experience with Docker, Kubernetes, and containerization",
-      "Proficiency with cloud platforms (AWS, Azure, GCP)",
-      "Knowledge of CI/CD tools (Jenkins, GitLab CI, GitHub Actions)",
-      "Strong scripting skills (Python, Bash, PowerShell)"
-    ],
-    "benefits": [
-      "Competitive salary and benefits",
-      "Remote work flexibility",
-      "Professional development budget",
-      "Health and wellness programs",
-      "Collaborative team environment"
-    ],
-    "postedDate": "2024-01-10T13:20:00Z",
-    "industry": "Technology",
+    "jobType": "Full-time",
+    "salaryMin": "95000",
+    "salaryMax": "135000",
     "experienceLevel": "Mid-level",
-    "featured": false
-  },
-  {
-    "Id": 7,
-    "title": "Sales Development Representative",
-    "company": "SalesForce Pro",
-    "location": "Miami, FL",
-    "type": "Full-time",
-    "salary": {
-      "min": 50000,
-      "max": 80000,
-      "currency": "USD"
-    },
-    "description": "Generate and qualify leads for our enterprise sales team. This role offers excellent growth opportunities and commission potential for driven individuals looking to build a career in B2B sales.",
-    "requirements": [
-      "1+ years of sales or customer-facing experience",
-      "Strong communication and interpersonal skills",
-      "Experience with CRM systems (Salesforce, HubSpot)",
-      "Goal-oriented with a track record of meeting targets",
-      "Bachelor's degree preferred but not required"
-    ],
-    "benefits": [
-      "Base salary plus uncapped commission",
-      "Comprehensive sales training program",
-      "Health and dental insurance",
-      "Career advancement opportunities",
-      "Team outings and recognition programs"
-    ],
-    "postedDate": "2024-01-09T08:45:00Z",
-    "industry": "Sales",
-    "experienceLevel": "Entry-level",
-    "featured": false
-  },
-  {
-    "Id": 8,
-    "title": "Full Stack Developer",
-    "company": "StartupHub",
-    "location": "Remote",
-    "type": "Full-time",
-    "salary": {
-      "min": 85000,
-      "max": 125000,
-      "currency": "USD"
-    },
-    "description": "Work on both frontend and backend development for our growing platform. You'll have the opportunity to work with modern technologies and contribute to architectural decisions in a fast-paced startup environment.",
-    "requirements": [
-      "3+ years of full stack development experience",
-      "Proficiency in React.js and Node.js",
-      "Experience with databases (PostgreSQL, MongoDB)",
-      "Knowledge of cloud services and deployment",
-      "Strong problem-solving and debugging skills"
-    ],
-    "benefits": [
-      "Fully remote work with flexible hours",
-      "Equity participation in growing startup",
-      "Health and wellness stipend",
-      "Home office setup budget",
-      "Annual team retreats"
-    ],
-    "postedDate": "2024-01-08T15:10:00Z",
-    "industry": "Technology",
-    "experienceLevel": "Mid-level",
-    "featured": true
+    "requiredSkills": "Python, Machine Learning, SQL, Tableau",
+    "description": "Join our data science team to extract insights from complex datasets and build predictive models. You should have strong skills in Python, machine learning, statistical analysis, and data visualization tools.",
+    "status": "active",
+    "createdAt": "2024-01-05T10:30:00Z",
+    "applicants": 22
   }
 ]

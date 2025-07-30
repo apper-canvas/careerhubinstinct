@@ -1,107 +1,151 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import Card from "@/components/atoms/Card";
+import React from "react";
+import { Card, CardContent } from "@/components/atoms/Card";
 import Badge from "@/components/atoms/Badge";
 import Button from "@/components/atoms/Button";
 import ApperIcon from "@/components/ApperIcon";
-import { savedJobService } from "@/services/api/savedJobService";
 import { format } from "date-fns";
+import { cn } from "@/utils/cn";
 
-const JobCard = ({ job, showSaveButton = true, saved = false, onSaveToggle }) => {
-  const navigate = useNavigate();
-  const [isSaved, setIsSaved] = useState(saved);
-  const [loading, setLoading] = useState(false);
-
-  const handleSaveToggle = async (e) => {
-    e.stopPropagation();
-    setLoading(true);
-    
-    try {
-      if (isSaved) {
-        await savedJobService.deleteByJobId(job.Id);
-        setIsSaved(false);
-        toast.success("Job removed from saved jobs");
-      } else {
-        await savedJobService.create({
-          jobId: job.Id,
-          notes: ""
-        });
-        setIsSaved(true);
-        toast.success("Job saved successfully");
-      }
-      onSaveToggle && onSaveToggle(job.Id, !isSaved);
-    } catch (error) {
-      toast.error("Failed to update saved job");
-    } finally {
-      setLoading(false);
+const JobCard = ({ job, className, onEdit, onDelete, onApplyCandidate, appliedCandidates = [] }) => {
+  const getStatusVariant = (status) => {
+    switch (status.toLowerCase()) {
+      case "active":
+        return "active";
+      case "closed":
+        return "inactive";
+      case "draft":
+        return "pending";
+      default:
+        return "default";
     }
   };
 
-  const formatSalary = (salary) => {
-    if (!salary) return "Salary not specified";
-    return `$${(salary.min / 1000).toFixed(0)}k - $${(salary.max / 1000).toFixed(0)}k`;
-  };
-
   return (
-    <Card hover onClick={() => navigate(`/jobs/${job.Id}`)} className="p-6">
-      <div className="flex justify-between items-start mb-4">
-        <div className="flex-1">
-          <div className="flex items-center gap-2 mb-2">
-            <h3 className="text-xl font-semibold text-gray-900 font-display">
+<Card className={cn("hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02]", className)}>
+      <CardContent className="p-6">
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex-1">
+            <h3 className="text-lg font-semibold font-display text-gray-900 mb-1">
               {job.title}
             </h3>
-            {job.featured && (
-              <Badge variant="accent" size="sm">
-                <ApperIcon name="Star" className="w-3 h-3 mr-1" />
-                Featured
+            <div className="flex items-center text-sm text-gray-600 mb-2">
+              <span className="font-medium">{job.company}</span>
+              {job.location && (
+                <>
+                  <span className="mx-2">•</span>
+                  <div className="flex items-center">
+                    <ApperIcon name="MapPin" size={14} className="mr-1" />
+                    {job.location}
+                  </div>
+                </>
+              )}
+            </div>
+            <div className="flex items-center gap-2 mb-3">
+              <Badge variant={getStatusVariant(job.status)}>
+                {job.status}
               </Badge>
+              {job.jobType && (
+                <Badge variant="secondary">
+                  {job.jobType}
+                </Badge>
+              )}
+              {job.experienceLevel && (
+                <Badge variant="outline">
+                  {job.experienceLevel}
+                </Badge>
+              )}
+            </div>
+</div>
+          <div className="flex items-center space-x-2">
+            {job.status === 'active' && (
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => onApplyCandidate?.(job)}
+                className="flex items-center gap-2"
+              >
+                <ApperIcon name="UserPlus" size={14} />
+                Apply Candidate
+              </Button>
             )}
-          </div>
-          <p className="text-lg text-gray-700 font-medium mb-1">{job.company}</p>
-          <div className="flex items-center text-gray-600 text-sm gap-4">
-            <div className="flex items-center gap-1">
-              <ApperIcon name="MapPin" className="w-4 h-4" />
-              {job.location}
-            </div>
-            <div className="flex items-center gap-1">
-              <ApperIcon name="Clock" className="w-4 h-4" />
-              {job.type}
-            </div>
+            <button
+              onClick={() => onEdit?.(job)}
+              className="p-2 text-gray-400 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
+            >
+              <ApperIcon name="Edit2" size={16} />
+            </button>
+            <button
+              onClick={() => onDelete?.(job)}
+              className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+            >
+              <ApperIcon name="Trash2" size={16} />
+            </button>
           </div>
         </div>
-        {showSaveButton && (
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={handleSaveToggle}
-            disabled={loading}
-            className="ml-4 p-2"
-          >
-            <ApperIcon 
-              name={isSaved ? "Heart" : "Heart"} 
-              className={`w-5 h-5 ${isSaved ? "fill-red-500 text-red-500" : "text-gray-400 hover:text-red-500"}`} 
-            />
-          </Button>
+        
+        {(job.salaryMin || job.salaryMax) && (
+          <div className="flex items-center mb-3 text-sm text-green-700 bg-green-50 px-3 py-2 rounded-lg">
+            <ApperIcon name="DollarSign" size={14} className="mr-1" />
+            {job.salaryMin && job.salaryMax 
+              ? `$${parseInt(job.salaryMin).toLocaleString()} - $${parseInt(job.salaryMax).toLocaleString()}`
+              : job.salaryMin 
+                ? `From $${parseInt(job.salaryMin).toLocaleString()}`
+                : `Up to $${parseInt(job.salaryMax).toLocaleString()}`
+            }
+          </div>
         )}
-      </div>
-
-      <p className="text-gray-600 mb-4 line-clamp-2">
-        {job.description}
-      </p>
-
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <Badge variant="primary">{job.experienceLevel}</Badge>
-          <Badge variant="default">{job.industry}</Badge>
+        
+        <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+          {job.description}
+        </p>
+        
+        {job.requiredSkills && (
+          <div className="mb-4">
+            <div className="flex flex-wrap gap-1">
+              {job.requiredSkills.split(',').slice(0, 3).map((skill, index) => (
+                <span
+                  key={index}
+                  className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-md"
+                >
+                  {skill.trim()}
+                </span>
+              ))}
+              {job.requiredSkills.split(',').length > 3 && (
+                <span className="text-xs text-gray-500 px-2 py-1">
+                  +{job.requiredSkills.split(',').length - 3} more
+                </span>
+              )}
+            </div>
+          </div>
+)}
+        
+        {/* Applied Candidates Section */}
+        {appliedCandidates.length > 0 && (
+          <div className="mb-4 p-3 bg-blue-50 rounded-lg">
+            <div className="flex items-center gap-2 mb-2">
+              <ApperIcon name="Users" size={14} className="text-blue-600" />
+              <span className="text-sm font-medium text-blue-900">
+                {appliedCandidates.length} Applied Candidates
+              </span>
+            </div>
+            <div className="text-xs text-blue-700 line-clamp-2">
+              {appliedCandidates.slice(0, 3).map(candidate => candidate.name).join(', ')}
+              {appliedCandidates.length > 3 && ` and ${appliedCandidates.length - 3} more`}
+            </div>
+          </div>
+        )}
+        
+        <div className="flex items-center justify-between text-xs text-gray-500">
+          <div className="flex items-center">
+            <ApperIcon name="Calendar" size={14} className="mr-1" />
+            Posted {format(new Date(job.createdAt), "MMM d, yyyy")}
+          </div>
+          <div className="flex items-center">
+            <ApperIcon name="Users" size={14} className="mr-1" />
+            {appliedCandidates.length} applied candidates
+          </div>
         </div>
-        <div className="text-right">
-          <p className="font-semibold text-gray-900">{formatSalary(job.salary)}</p>
-          <p className="text-sm text-gray-500">
-            {format(new Date(job.postedDate), "MMM dd, yyyy")}
-          </p>
-        </div>
-      </div>
+      </CardContent>
     </Card>
   );
 };

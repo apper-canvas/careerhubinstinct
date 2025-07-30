@@ -2,28 +2,48 @@
   {
     "Id": 1,
     "jobId": 1,
-    "status": "Applied",
-    "appliedDate": "2024-01-16T10:30:00Z",
-    "notes": "Submitted application with updated resume focusing on React experience",
-    "resume": "john_doe_resume_2024.pdf",
-    "coverLetter": "Excited about the opportunity to work with cutting-edge frontend technologies at TechCorp Solutions."
+    "candidateId": 1,
+    "appliedAt": "2024-01-16T14:30:00Z",
+    "status": "screening",
+    "notes": ""
   },
   {
-    "Id": 2,
-    "jobId": 3,
-    "status": "Interview Scheduled",
-    "appliedDate": "2024-01-14T14:20:00Z",
-    "notes": "Phone screening scheduled for next week",
-    "resume": "john_doe_resume_2024.pdf",
-    "coverLetter": "My design portfolio aligns well with the creative direction of Design Studio Pro."
+"Id": 2,
+    "jobId": 2,
+    "candidateId": 2,
+    "appliedAt": "2024-01-15T16:45:00Z",
+    "status": "interview_scheduled",
+    "notes": "",
+    "interview": {
+      "date": "2024-01-22",
+      "time": "14:00",
+      "interviewer": "Sarah Johnson",
+      "type": "Video",
+      "notes": "Technical screening - focus on React and Node.js experience"
+    }
   },
   {
     "Id": 3,
-    "jobId": 8,
-    "status": "Under Review",
-    "appliedDate": "2024-01-12T09:15:00Z",
-    "notes": "Application submitted through company website",
-    "resume": "john_doe_resume_2024.pdf",
-    "coverLetter": "Looking forward to contributing to the full stack development team at StartupHub."
+    "jobId": 3,
+    "candidateId": 3,
+    "appliedAt": "2024-01-14T11:20:00Z",
+    "status": "final_review",
+    "notes": ""
+  },
+  {
+    "Id": 4,
+    "jobId": 1,
+    "candidateId": 5,
+    "appliedAt": "2024-01-13T09:15:00Z",
+    "status": "hired",
+    "notes": ""
+  },
+  {
+    "Id": 5,
+    "jobId": 5,
+    "candidateId": 8,
+    "appliedAt": "2024-01-12T15:30:00Z",
+    "status": "rejected",
+    "notes": ""
   }
 ]
