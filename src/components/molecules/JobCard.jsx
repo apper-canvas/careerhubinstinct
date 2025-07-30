@@ -137,9 +137,11 @@ const getStatusVariant = (status) => {
         )}
         
         <div className="flex items-center justify-between text-xs text-gray-500">
-          <div className="flex items-center">
+<div className="flex items-center">
             <ApperIcon name="Calendar" size={14} className="mr-1" />
-            Posted {format(new Date(job.createdAt), "MMM d, yyyy")}
+            Posted {job.createdAt_c && !isNaN(new Date(job.createdAt_c)) 
+              ? format(new Date(job.createdAt_c), "MMM d, yyyy") 
+              : "N/A"}
           </div>
           <div className="flex items-center">
             <ApperIcon name="Users" size={14} className="mr-1" />
