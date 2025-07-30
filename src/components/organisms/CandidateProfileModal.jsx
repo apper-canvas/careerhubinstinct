@@ -405,11 +405,11 @@ return (
                 </div>
 
                 {/* Communication Notes */}
-                <div className="border-t border-gray-200 pt-6">
+<div className="border-t border-gray-200 pt-6">
                   <NotesList
                     entityType="candidate"
-                    entityId={candidate.Id}
-                    entityName={candidate.name}
+                    entityId={candidate?.Id}
+                    entityName={candidate?.name || 'Unknown Candidate'}
                   />
                 </div>
 
