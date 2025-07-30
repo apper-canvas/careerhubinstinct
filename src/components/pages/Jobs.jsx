@@ -81,11 +81,11 @@ async function loadJobs() {
   }
 async function handleSaveJob(jobData) {
     try {
-      // Find client company name from clientId
-      const client = clients.find(c => c.Id === parseInt(jobData.clientId))
+      // Find client company name from clientId_c
+      const client = clients.find(c => c.Id === parseInt(jobData.clientId_c))
       const jobWithClient = {
         ...jobData,
-        company: client ? client.companyName : jobData.company
+        company_c: client ? client.companyName_c : jobData.company_c
       }
       
       if (editingJob) {
@@ -106,8 +106,8 @@ async function handleSaveJob(jobData) {
     }
   }
 
-  async function handleDeleteJob(job) {
-    if (!window.confirm(`Are you sure you want to delete "${job.title}"?`)) {
+async function handleDeleteJob(job) {
+    if (!window.confirm(`Are you sure you want to delete "${job.title_c}"?`)) {
       return
     }
 
@@ -117,23 +117,23 @@ async function handleSaveJob(jobData) {
       toast.success('Job deleted successfully!')
     } catch (error) {
       toast.error(error.message || 'Failed to delete job')
-}
+    }
   }
 
-  const getAppliedCandidatesForJob = (jobId) => {
-    const jobApplications = applications.filter(app => app.jobId === jobId)
+const getAppliedCandidatesForJob = (jobId) => {
+    const jobApplications = applications.filter(app => app.jobId_c === jobId)
     return jobApplications.map(app => 
-      candidates.find(candidate => candidate.Id === app.candidateId)
+      candidates.find(candidate => candidate.Id === app.candidateId_c)
     ).filter(Boolean)
   }
 
 const filteredJobs = jobs.filter(job => {
     const searchLower = searchTerm.toLowerCase()
-    const client = clients.find(c => c.companyName === job.company)
-    return job.title.toLowerCase().includes(searchLower) ||
-           job.company.toLowerCase().includes(searchLower) ||
-           job.description.toLowerCase().includes(searchLower) ||
-           (client?.contactPerson?.toLowerCase().includes(searchLower))
+    const client = clients.find(c => c.companyName_c === job.company_c)
+    return job.title_c?.toLowerCase().includes(searchLower) ||
+           job.company_c?.toLowerCase().includes(searchLower) ||
+           job.description_c?.toLowerCase().includes(searchLower) ||
+           (client?.contactPerson_c?.toLowerCase().includes(searchLower))
   })
   return (
     <div className="space-y-6">
