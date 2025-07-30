@@ -8,7 +8,7 @@ import Login from "@/components/pages/Login";
 import Signup from "@/components/pages/Signup";
 import Callback from "@/components/pages/Callback";
 import ErrorPage from "@/components/pages/ErrorPage";
-import ErrorPage from "@/components/pages/ErrorPage";
+import Candidates from "@/components/pages/Candidates";
 import ResetPassword from "@/components/pages/ResetPassword";
 import PromptPassword from "@/components/pages/PromptPassword";
 import "@/index.css";
